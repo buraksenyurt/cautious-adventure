@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="view.contact.text" xml:space="preserve">
-    <value>Herhangi bir sorunda e-posta atmaya çekinmeyin. Belki cevap veririm :)</value>
+    <value>No dude en enviarnos un correo electrónico con cualquier problema. Tal vez responda :)</value>
   </data>
 </root>

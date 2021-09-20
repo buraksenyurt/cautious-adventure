@@ -1,4 +1,21 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+
+@*Layout tarafında dil seçimini yaptırabilmek için eklenenler *@
+
+@inject IOptions<RequestLocalizationOptions> localizationOptions
+
+@{
+    string returnUrl = ViewContext.HttpContext.Request.Path;
+
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultures = localizationOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,6 +40,25 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        @*
+                            Dili değiştirmek için eklediğimiz kısım. Select elementine yüklenen listeden seçilen dil için
+                            LanguageController sınıfındaki ChangeLanguage metoduna HTTP Post çağrısı yapılır.
+                            Deneme sırasında F12 ile Developers tabına geçip Cookies kısmında c ve uic değerlerinin ne olduğuna bakmakta yarar var.
+                            .AspNetCore.Culture isimli key içinde yer alacaklardır.
+                            *@
+                        <li class="nav-item">
+                            <form asp-action="ChangeLanguage" asp-controller="Language" method="post">
+                                <input type="hidden" id="returnUrl" name="returnUrl" value="@returnUrl" />
+                                <select id="culture"
+                                        name="culture"
+                                        class="form-control"
+                                        onchange="this.form.submit();"
+                                        asp-items="cultures"
+                                        asp-for="@requestCulture.RequestCulture.UICulture.Name">
+                                </select>
+
+                            </form>
                         </li>
                     </ul>
                 </div>
