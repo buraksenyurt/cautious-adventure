@@ -1,7 +1,10 @@
 ﻿@using MultilanguageSupport.Controllers
 @using Microsoft.AspNetCore.Mvc.Localization
 
-@inject IHtmlLocalizer<HomeController> HtmlLocalizer
+@inject IHtmlLocalizer<HomeController> HtmlLocalizer 
+    @*resx string içeriklerindeki HTML takılarına destek için kullanılan servis*@
+@inject IViewLocalizer ViewLocalizer 
+    @* View'ların için ayrı resource dosyaları kullandırabiliriz. Resources/Views altına bakın *@
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["PageTitle"]</h1>
@@ -11,4 +14,7 @@
         İstersek içinde HTML tag barındıran string değerleri IHtmlLocalizer arayüzü üstünden kullanıma alabiliriz.
         Bunu kullanabilmek için View Injection tekniğinden yararlandığımıza dikkat edelim.
     *@
+    <p>
+        @ViewLocalizer["view.contact.text"]
+    </p>
 </div>
