@@ -1,4 +1,14 @@
-﻿<div class="text-center">
+﻿@using MultilanguageSupport.Controllers
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IHtmlLocalizer<HomeController> HtmlLocalizer
+
+<div class="text-center">
     <h1 class="display-4">@ViewData["PageTitle"]</h1>
-    <p>@ViewData["PageDescription"]</p>
+    @*<p>@ViewData["PageDescription"]</p>*@
+    <p>@HtmlLocalizer["page.description"]</p>
+    @*
+        İstersek içinde HTML tag barındıran string değerleri IHtmlLocalizer arayüzü üstünden kullanıma alabiliriz.
+        Bunu kullanabilmek için View Injection tekniğinden yararlandığımıza dikkat edelim.
+    *@
 </div>
