@@ -1,26 +1,42 @@
 ﻿using BuilderPattern.Models;
+using BuilderPattern.Models.Concretes;
+using BuilderPattern.Models.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BuilderPattern.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IArmyDirector _armyDirector;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IArmyDirector armyDirector)
         {
             _logger = logger;
+            _armyDirector = armyDirector;
         }
 
         public IActionResult Index()
         {
-            return View();
+            GameCharactersModel model = new();
+
+            var surgentBuilder = new SurgentCharacterBuilder();
+            _armyDirector.SetCharacterBuilder(surgentBuilder);
+            _armyDirector.BuildSurgent();
+            model.SecondOfficer = surgentBuilder.GetCharacter();
+
+            var captainBuilder = new CaptainCharacterBuilder();
+            _armyDirector.SetCharacterBuilder(captainBuilder);
+            _armyDirector.BuildCaptain();
+            model.FirstOfficer = captainBuilder.GetCharacter();
+
+            var medicBuilder = new SurgentCharacterBuilder();
+            medicBuilder.BuildBody();
+            model.MedicOfficer = medicBuilder.GetCharacter();
+
+            return View(model);
         }
 
         public IActionResult Privacy()

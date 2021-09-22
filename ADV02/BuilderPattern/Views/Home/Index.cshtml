@@ -1,8 +1,65 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model BuilderPattern.Models.GameCharactersModel;
+
+@{
+    ViewData["Title"] = "Oyun Karakter Satınalma Merkezi";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">@Model.SecondOfficer.Nickname</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        @Model.SecondOfficer.Location
+                    </h4>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        @foreach (var b in Model.SecondOfficer.Blocks)
+                        {
+                            <li>@b.Name - @b.Description (@b.Level)</li>
+                        }
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">Satın Al</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h3 class="my-0 font-weight-normal">@Model.FirstOfficer.Nickname</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">
+                    @Model.FirstOfficer.Location
+                </h4>
+                <ul class="list-unstyled mt-3 mb-4">
+                    @foreach (var b in Model.FirstOfficer.Blocks)
+                    {
+                        <li>@b.Name - @b.Description (@b.Level)</li>
+                    }
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-info">Satın Al</button>
+            </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h3 class="my-0 font-weight-normal">@Model.MedicOfficer.Nickname</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">
+                    @Model.MedicOfficer.Location
+                </h4>
+                <ul class="list-unstyled mt-3 mb-4">
+                    @foreach (var b in Model.MedicOfficer.Blocks)
+                    {
+                        <li>@b.Name - @b.Description (@b.Level)</li>
+                    }
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-secondary">Satın Al</button>
+            </div>
+        </div>
+    </div>
 </div>
