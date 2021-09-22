@@ -1,3 +1,6 @@
+using BuilderPattern.Models;
+using BuilderPattern.Models.Concretes;
+using BuilderPattern.Models.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +27,10 @@ namespace BuilderPattern
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddScoped<ICharacterBuilder, SurgentCharacterBuilder>();
+            services.AddScoped<ICharacterBuilder, CaptainCharacterBuilder>();
+            services.AddScoped<IArmyDirector, ArmyDirector>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
