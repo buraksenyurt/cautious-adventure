@@ -1,4 +1,4 @@
-﻿namespace BuilderPattern.Models
+﻿namespace BuilderPattern.Models.Contracts
 {
     // Director sınıfı
     public interface IArmyDirector

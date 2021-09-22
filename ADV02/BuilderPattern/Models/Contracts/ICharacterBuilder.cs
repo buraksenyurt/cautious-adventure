@@ -1,4 +1,6 @@
-﻿namespace BuilderPattern.Models
+﻿using BuilderPattern.Models.Product;
+
+namespace BuilderPattern.Models.Contracts
 {
     // Builder sözleşmesi
     public interface ICharacterBuilder

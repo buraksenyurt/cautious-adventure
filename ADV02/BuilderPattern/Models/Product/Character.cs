@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BuilderPattern.Models
+namespace BuilderPattern.Models.Product
 {
     // Product sınıfımız
     public class Character

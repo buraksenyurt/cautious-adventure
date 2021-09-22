@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BuilderPattern.Models.Contracts;
 
-namespace BuilderPattern.Models
+namespace BuilderPattern.Models.Concretes
 {
     public class ArmyDirector
         : IArmyDirector

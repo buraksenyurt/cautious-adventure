@@ -1,4 +1,4 @@
-﻿namespace BuilderPattern.Models
+﻿namespace BuilderPattern.Models.Product
 {
     public class Block
     {

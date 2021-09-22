@@ -1,4 +1,7 @@
-﻿namespace BuilderPattern.Models
+﻿using BuilderPattern.Models.Contracts;
+using BuilderPattern.Models.Product;
+
+namespace BuilderPattern.Models.Concretes
 {
     // Builder sözleşmesini uygulayan asıl sınıf(Concrete Builder)
     public class SurgentCharacterBuilder
