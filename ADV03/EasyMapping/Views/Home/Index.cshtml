@@ -18,17 +18,19 @@
             <th>@Html.DisplayNameFor(model => model.Nickname)</th>
             <th>@Html.DisplayNameFor(model => model.Level)</th>
             <th>@Html.DisplayNameFor(model => model.Age)</th>
+            <th>@Html.DisplayNameFor(model => model.SubscriptionDate)</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.PlayerId)</td>
-                <td>@Html.DisplayFor(modelItem => item.Nickname)</td>
-                <td>@Html.DisplayFor(modelItem => item.Level)</td>
-                <td>@Html.DisplayFor(modelItem => item.Age)</td>
-            </tr>
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.PlayerId)</td>
+            <td>@Html.DisplayFor(modelItem => item.Nickname)</td>
+            <td>@Html.DisplayFor(modelItem => item.Level)</td>
+            <td>@Html.DisplayFor(modelItem => item.Age)</td>
+            <td>@Html.DisplayFor(modelItem => item.SubscriptionDate)</td>
+        </tr>
         }
     </tbody>
 </table>

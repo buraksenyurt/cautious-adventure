@@ -30,3 +30,13 @@ FluentValidation ile backend tarafında View ile gelen Model nesnelerini doğrul
 
 Kaynak : https://www.ezzylearning.net/tutorial/a-step-by-step-guide-of-using-automapper-in-asp-net-core
 
+Bazen bir veritabanı tablosunu sınıf nesne örneğine eşleştirmeyi değil de domain nesnesini servise veya servis nesnesini önyüz modeline eşlememiz gerekir. Mesela Model nesnesinin tüm özellikleri servis fonksiyonlarında gerekli olmayabilir. Bu noktada illa ki nesneden nesneye bir özellik ataması işine girmek gerekecektir. Baya iki nesne özellik değerlerini eşleştirme işinden bahsediyoruz. AutoMapper paketi bu işi epeyce kolaylaştırıyor. Örnek onunla ilgili. İlk etapta Player ve PlayerModel arasındaki kurguyu incelesek yeterli.
+
+Sadece örneğin çalıştığını kayıt altına almak için aşağıdaki ekran görüntüsü eklendi.
+
+![./assets/adv04_01.png](./assets/adv04_01.png)
+
+Tabii aşağıdaki daha anlamlı olabilir. PlayerModel içindeki bazı özellikleri Map işlemine dahil etmek istemedik. Bunları dışarıda bırakmak için PlayerModel içerisine yazılan Mapping fonskiyonu var ki generic IMapFrom üstünden gelmekte. Kısacası map işlemi sırasında modelde olmasını istemediğimiz özellikleri burada kaldırma şansımız var.
+
+![./assets/adv04_02.png](./assets/adv04_02.png)
+
