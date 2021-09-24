@@ -14,8 +14,13 @@ namespace EasyMapping.Mappings
         // Harita Profile tipinden türeyen bir sınıfın yapıcı metodunda oluşur.
         public MappingProfile()
         {
-            // Eşleştirilecek ne kadar nesne varsa burada belirtilir.
+            /*
+             * Eşleştirilecek ne kadar nesne varsa burada belirtilir.
+             * Ancak bu çok tercih edilen bir model değil nitekim nesne sayısı çoğaldığında burada bir sürü CreateMap çağrısı olacaktır.
+             * İşte bu noktada bu sınıf bir sonraki check-in ile değişecek.
+             */
             CreateMap<Player, PlayerModel>();
+            CreateMap<Game, GameModel>(); 
         }
     }
 }
