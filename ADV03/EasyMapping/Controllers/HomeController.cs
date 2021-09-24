@@ -1,26 +1,26 @@
 ﻿using EasyMapping.Models;
+using EasyMapping.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EasyMapping.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IPlayerService _playerService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IPlayerService playerService)
         {
             _logger = logger;
+            _playerService = playerService;
+            // Oyuncularla ilgili servisi enjekte ediyoruz ve Index metodunda kullanarak oyuncu listesini dönüyoruz. İşte o noktada AutoMapper iş başında oluyor.
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_playerService.GetPlayers());
         }
 
         public IActionResult Privacy()

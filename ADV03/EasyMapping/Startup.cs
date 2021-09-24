@@ -1,3 +1,4 @@
+﻿using EasyMapping.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,7 @@ namespace EasyMapping
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IPlayerService, PlayerService>(); // PlayerServisini DI deposuna ekleyip dolaşıma aldık.
             services.AddAutoMapper(Assembly.GetExecutingAssembly()); // AutoMapper servisi DI deposuna eklenir.
         }
 
