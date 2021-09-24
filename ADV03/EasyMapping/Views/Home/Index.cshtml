@@ -1,8 +1,34 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<PlayerModel>
+
+@{
+    ViewData["Title"] = "Oyuncular";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col">
+        <h1>Oyuncu Listesi</h1>
+    </div>
 </div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PlayerId)</th>
+            <th>@Html.DisplayNameFor(model => model.Nickname)</th>
+            <th>@Html.DisplayNameFor(model => model.Level)</th>
+            <th>@Html.DisplayNameFor(model => model.Age)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.PlayerId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Nickname)</td>
+                <td>@Html.DisplayFor(modelItem => item.Level)</td>
+                <td>@Html.DisplayFor(modelItem => item.Age)</td>
+            </tr>
+        }
+    </tbody>
+</table>
