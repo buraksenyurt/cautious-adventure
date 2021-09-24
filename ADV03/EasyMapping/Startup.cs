@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace EasyMapping
@@ -24,6 +25,7 @@ namespace EasyMapping
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly()); // AutoMapper servisi DI deposuna eklenir.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
